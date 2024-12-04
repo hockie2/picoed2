@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/picoed2/static/css/main.4947439d.chunk.css",
+    "main.js": "/picoed2/static/js/main.20f75897.chunk.js",
+    "main.js.map": "/picoed2/static/js/main.20f75897.chunk.js.map",
+    "runtime-main.js": "/picoed2/static/js/runtime-main.d68a1336.js",
+    "runtime-main.js.map": "/picoed2/static/js/runtime-main.d68a1336.js.map",
+    "static/js/2.f8dbdae5.chunk.js": "/picoed2/static/js/2.f8dbdae5.chunk.js",
+    "static/js/2.f8dbdae5.chunk.js.map": "/picoed2/static/js/2.f8dbdae5.chunk.js.map",
+    "index.html": "/picoed2/index.html",
+    "precache-manifest.cdad2040800a6f5575e38cc29f884c98.js": "/picoed2/precache-manifest.cdad2040800a6f5575e38cc29f884c98.js",
+    "service-worker.js": "/picoed2/service-worker.js",
+    "static/css/main.4947439d.chunk.css.map": "/picoed2/static/css/main.4947439d.chunk.css.map",
+    "static/js/2.f8dbdae5.chunk.js.LICENSE.txt": "/picoed2/static/js/2.f8dbdae5.chunk.js.LICENSE.txt",
+    "static/media/style.module.scss": "/picoed2/static/media/background_01.e0a8e08c.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d68a1336.js",
+    "static/js/2.f8dbdae5.chunk.js",
+    "static/css/main.4947439d.chunk.css",
+    "static/js/main.20f75897.chunk.js"
+  ]
+}
