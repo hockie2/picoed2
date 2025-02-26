@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cafd12915cf4a0d14b666b68588cb87b",
+    "revision": "0fa067f503976b9ab8f94e5ed046b9c1",
     "url": "/picoed2/index.html"
   },
   {
-    "revision": "16723be0879e1cbbee2d",
-    "url": "/picoed2/static/css/main.d6f1d24a.chunk.css"
+    "revision": "131c72fee1004dd2104e",
+    "url": "/picoed2/static/css/main.0249a712.chunk.css"
   },
   {
     "revision": "292a66ce00ecd4c02238",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/picoed2/static/js/2.3917e3ab.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "16723be0879e1cbbee2d",
+    "revision": "131c72fee1004dd2104e",
     "url": "/picoed2/static/js/main.a0e68839.chunk.js"
   },
   {

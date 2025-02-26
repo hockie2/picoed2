@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/picoed2/precache-manifest.cb37c34376196ab36bbe9dcda2148a04.js"
+  "/picoed2/precache-manifest.acb055d84e6f5fd21e77f044608db2b7.js"
 );
 
 self.addEventListener('message', (event) => {
