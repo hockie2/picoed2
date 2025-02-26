@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/picoed2/static/css/main.d6f1d24a.chunk.css",
+    "main.js": "/picoed2/static/js/main.a0e68839.chunk.js",
+    "main.js.map": "/picoed2/static/js/main.a0e68839.chunk.js.map",
+    "runtime-main.js": "/picoed2/static/js/runtime-main.d68a1336.js",
+    "runtime-main.js.map": "/picoed2/static/js/runtime-main.d68a1336.js.map",
+    "static/js/2.3917e3ab.chunk.js": "/picoed2/static/js/2.3917e3ab.chunk.js",
+    "static/js/2.3917e3ab.chunk.js.map": "/picoed2/static/js/2.3917e3ab.chunk.js.map",
+    "index.html": "/picoed2/index.html",
+    "precache-manifest.cb37c34376196ab36bbe9dcda2148a04.js": "/picoed2/precache-manifest.cb37c34376196ab36bbe9dcda2148a04.js",
+    "service-worker.js": "/picoed2/service-worker.js",
+    "static/css/main.d6f1d24a.chunk.css.map": "/picoed2/static/css/main.d6f1d24a.chunk.css.map",
+    "static/js/2.3917e3ab.chunk.js.LICENSE.txt": "/picoed2/static/js/2.3917e3ab.chunk.js.LICENSE.txt",
+    "static/media/style.module.scss": "/picoed2/static/media/background_01.3d51e23a.jpg",
+    "static/media/folks.png": "/picoed2/static/media/folks.75dc0f2d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d68a1336.js",
+    "static/js/2.3917e3ab.chunk.js",
+    "static/css/main.d6f1d24a.chunk.css",
+    "static/js/main.a0e68839.chunk.js"
+  ]
+}
