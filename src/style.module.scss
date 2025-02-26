@@ -36,7 +36,7 @@ body {
   color: #265395;
   margin-right: 20px;
   line-height: 1.2;
-  font-family: "Francois One", sans-ser;
+  font-family: "Francois One", serif;
 }
 
 .form_wrapper {
@@ -69,6 +69,7 @@ span {
   display: flex;
   justify-content: space-between;
   padding: 5px 10px;
+  flex-wrap: wrap;
 }
 
 .input_fields_bold {
@@ -79,6 +80,7 @@ span {
   justify-content: space-between;
   padding: 5px 10px;
   font-style: italic;
+  flex-wrap: wrap;
 }
 
 input {
