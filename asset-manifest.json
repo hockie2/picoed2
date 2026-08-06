@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/picoed2/static/css/main.71f2a7d1.css",
+    "main.js": "/picoed2/static/js/main.7f52aaf2.js",
+    "static/media/folks.png": "/picoed2/static/media/folks.bc0bec60632ebbbb9b8b.png",
+    "static/media/background_01.jpg": "/picoed2/static/media/background_01.eefbf86d2dd70435e659.jpg",
+    "index.html": "/picoed2/index.html",
+    "main.71f2a7d1.css.map": "/picoed2/static/css/main.71f2a7d1.css.map",
+    "main.7f52aaf2.js.map": "/picoed2/static/js/main.7f52aaf2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.71f2a7d1.css",
+    "static/js/main.7f52aaf2.js"
+  ]
+}
