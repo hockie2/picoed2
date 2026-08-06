@@ -42,7 +42,7 @@ class Calculator extends React.Component {
       : styles.chart_wrapper_hidden;
 
     return (
-      <div className={styles.main_wrapper + " px-5 py-4"}>
+      <div className={styles.main_wrapper + " px-3 px-md-5 py-3 py-md-4"}>
         <form onSubmit={this.props.submitForm} className={`${form_class} container-fluid px-0`}>
           
           {/* Current age */}

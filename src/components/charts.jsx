@@ -22,8 +22,10 @@ class Charts extends React.Component {
 
       return (
         <div className={`${this.props.chart_class} gap-3`}>
-            <Chart chartType="ColumnChart" width="100%" height="100%" data={data} options={options} className="d-flex justify-content-center" />
-            <div className={`${styles.chart_footer} p-3 rounded-3 d-flex justify-content-between`}>
+            <div className={styles.chart_canvas}>
+                <Chart chartType="ColumnChart" width="100%" height="100%" data={data} options={options} />
+            </div>
+            <div className={`${styles.chart_footer} p-3 rounded-3 d-flex flex-column flex-sm-row justify-content-between gap-3 gap-sm-0`}>
                 <div className={`${styles.chart_details} vstack`}>
                   Total Funds Required
                   <h3>S${this.props.total_funds}</h3>

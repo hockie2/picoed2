@@ -143,6 +143,27 @@ input:focus {
   display: none;
 }
 
+// Fixed, responsive height for the Google Chart's container.
+// react-google-charts measures its parent's actual pixel size on mount,
+// so a height of 100% on a flex child with no defined height collapses
+// to 0 and the chart renders squashed, especially on mobile.
+.chart_canvas {
+  width: 100%;
+  height: 220px;
+
+  @media (min-width: 576px) {
+    height: 280px;
+  }
+
+  @media (min-width: 768px) {
+    height: 320px;
+  }
+
+  @media (min-width: 1200px) {
+    height: 380px;
+  }
+}
+
 .chart_footer {
   display: flex;
   flex-direction: row;
@@ -157,8 +178,13 @@ input:focus {
 .chart_details {
   width: 30%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
+
+  @media (max-width: 575.98px) {
+    width: 100%;
+  }
 }
 
 .edit {
