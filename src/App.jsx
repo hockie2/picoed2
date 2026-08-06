@@ -231,19 +231,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid p-3">
-        <div className="row">
-          <div className="col-12 col-lg-5 col-xl-4 d-flex flex-column justify-content-around">
-            <p className={styles.headerText}>Retirement Calculator</p>
+      <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center p-3">
+        <div className="row align-items-center w-100">
+          <div className="col-12 col-xl-5 col-xxl-4 text-center">
+            <div className={styles.headerText}>Retirement Calculator</div>
             <div>
-              <img
-                src={folks}
-                alt=""
-                className={`img-fluid ${styles.folksMax}`}
-              />
+              <img src={folks} alt="" className={`${styles.folksMax} img-fluid`} />
             </div>
           </div>
-          <div className="col-12 col-lg-7 col-xl-8">
+          <div className="col-12 col-xl-7 col-xxl-8">
             <Calculator
               onChange={this.onChange}
               submitForm={this.submitForm}

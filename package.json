@@ -4,13 +4,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "node-sass": "^4.14.1",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-google-charts": "^3.0.15",
     "react-hot-loader": "^4.13.1",
-    "react-scripts": "^3.4.4"
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,6 +35,14 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.2.0"
+    "gh-pages": "^6.2.0",
+    "sass": "^1.102.0"
+  },
+  "lavamoat": {
+    "allowScripts": {
+      "react-scripts>react-app-polyfill>core-js#3.50.0": false,
+      "sass>@parcel/watcher#2.6.0": false,
+      "react-scripts>@pmmmwh/react-refresh-webpack-plugin>core-js-pure#3.50.0": false
+    }
   }
 }

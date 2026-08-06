@@ -1,5 +1,4 @@
 import React from "react";
-// import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import Charts from "./charts";
 
@@ -7,7 +6,8 @@ import styles from "../style.module.scss";
 
 class Calculator extends React.Component {
   numberWithCommas(x) {
-    return x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (x === undefined || x === null) return "0.00";
+    return Number(x).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   render() {
@@ -34,7 +34,6 @@ class Calculator extends React.Component {
       );
     }
 
-    // Classes//////////////////////////////////////////////////////////////////////////////////////////////////
     const form_class = this.props.state.formVisibility
       ? styles.form_wrapper
       : styles.form_wrapper_hidden;
@@ -43,222 +42,330 @@ class Calculator extends React.Component {
       : styles.chart_wrapper_hidden;
 
     return (
-      <div className={styles.main_wrapper}>
-        <form onSubmit={this.props.submitForm} className={form_class}>
-          <div className={styles.input_fields}>
-            Current age
-            <span>
-              <span className={styles.errorMsg}>
-                {this.props.state.errorCurrent_age}
-              </span>
-              Years
-              <input
-                type="number"
-                name="current_age"
-                value={this.props.state.current_age}
-                onChange={this.props.onChange}
-              />
-            </span>
-          </div>
-          <div className={styles.input_fields}>
-            Retirement age
-            <span>
-              <span className={styles.errorMsg}>
-                {this.props.state.errorRetirement_age}
-              </span>
-              Years
-              <input
-                type="number"
-                name="retirement_age"
-                value={this.props.state.retirement_age}
-                onChange={this.props.onChange}
-              />
-            </span>
-          </div>
-          <div className={styles.input_fields}>
-            <div className={styles.description}>
-              Expected monthly expenses required during retirement years (in
-              current values)
+      <div className={styles.main_wrapper + " px-5 py-4"}>
+        <form onSubmit={this.props.submitForm} className={`${form_class} container-fluid px-0`}>
+          
+          {/* Current age */}
+          <div className="row mb-3 align-items-center">
+            <label className="col-12 col-md-6 form-label fw-medium mb-1 mb-md-0">
+              Current age
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <input
+                  type="number"
+                  className="form-control"
+                  name="current_age"
+                  value={this.props.state.current_age}
+                  onChange={this.props.onChange}
+                />
+                <span className="input-group-text">Years</span>
+              </div>
+              {this.props.state.errorCurrent_age && (
+                <div className="text-danger small mt-1">
+                  {this.props.state.errorCurrent_age}
+                </div>
+              )}
             </div>
-            <span>
-              <span className={styles.errorMsg}>
-                {this.props.state.errorExpected_monthly_expenses}
-              </span>
-              S$
-              <input
-                type="number"
-                name="expected_monthly_expenses"
-                value={this.props.state.expected_monthly_expenses}
-                onChange={this.props.onChange}
-              />
-            </span>
-          </div>
-          <div className={styles.input_fields_bold}>
-            Expected yearly expenses required during retirement years
-            <span className={styles.span_readonly}>
-              S$
-              <input
-                className={styles.input_fields_readonly}
-                type="text"
-                name="total_surplus_shortfall"
-                value={expected_yearly_expenses}
-                disabled
-              />
-            </span>
           </div>
 
-          <br />
-          <div className={styles.input_fields}>
-            {" "}
-            Expected lifespan post-retirement
-            <span>
-              <span className={styles.errorMsg}>
-                {this.props.state.errorExpected_lifespan}
-              </span>
-              Years
-              <input
-                type="number"
-                name="expected_lifespan"
-                value={this.props.state.expected_lifespan}
-                onChange={this.props.onChange}
-              />
-            </span>
-          </div>
-          <div className={styles.input_fields}>
-            Inflation rate
-            <span>
-              %
-              <input
-                type="number"
-                name="inflation_rate"
-                value={this.props.state.inflation_rate}
-                onChange={this.props.onChange}
-              />
-            </span>
-          </div>
-          <div className={styles.input_fields}>
-            Interest rate
-            <span>
-              %
-              <input
-                type="number"
-                name="interest_rate"
-                value={this.props.state.interest_rate}
-                onChange={this.props.onChange}
-              />
-            </span>
-          </div>
-          <div className={styles.input_fields_bold}>
-            Total sum required in {this.props.state.yrs_to_retire} years to fund
-            your retirement
-            <span className={styles.span_readonly}>
-              S$
-              <input
-                className={styles.input_fields_readonly}
-                type="text"
-                name="total_surplus_shortfall"
-                value={retirement_sum}
-                disabled
-              />
-            </span>
+          {/* Retirement age */}
+          <div className="row mb-3 align-items-center">
+            <label className="col-12 col-md-6 form-label fw-medium mb-1 mb-md-0">
+              Retirement age
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <input
+                  type="number"
+                  className="form-control"
+                  name="retirement_age"
+                  value={this.props.state.retirement_age}
+                  onChange={this.props.onChange}
+                />
+                <span className="input-group-text">Years</span>
+              </div>
+              {this.props.state.errorRetirement_age && (
+                <div className="text-danger small mt-1">
+                  {this.props.state.errorRetirement_age}
+                </div>
+              )}
+            </div>
           </div>
 
-          <br />
-          <div className={styles.input_fields}>
-            Annual income put aside for retirement
-            <span>
-              <span className={styles.errorMsg}>
-                {this.props.state.errorAnnual_income_aside}
-              </span>
-              S$
-              <input
-                type="number"
-                name="annual_income_aside"
-                value={this.props.state.annual_income_aside}
-                onChange={this.props.onChange}
-              />
-            </span>
-          </div>
-          <div className={styles.input_fields_bold}>
-            Projected value of your retirement savings in{" "}
-            {this.props.state.yrs_to_retire} years
-            <span className={styles.span_readonly}>
-              S$
-              <input
-                className={styles.input_fields_readonly}
-                type="text"
-                name="total_surplus_shortfall"
-                value={projected_value}
-                disabled
-              />
-            </span>
+          {/* Expected monthly expenses */}
+          <div className="row mb-3 align-items-center">
+            <label className="col-12 col-md-6 form-label fw-medium mb-1 mb-md-0">
+              Expected monthly expenses required during retirement years (in current values)
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <span className="input-group-text">S$</span>
+                <input
+                  type="number"
+                  className="form-control"
+                  name="expected_monthly_expenses"
+                  value={this.props.state.expected_monthly_expenses}
+                  onChange={this.props.onChange}
+                />
+              </div>
+              {this.props.state.errorExpected_monthly_expenses && (
+                <div className="text-danger small mt-1">
+                  {this.props.state.errorExpected_monthly_expenses}
+                </div>
+              )}
+            </div>
           </div>
 
-          <br />
-          <div className={styles.input_fields}>
-            Projected Value of Insurance Policies
-            <span>
-              <span className={styles.errorMsg}>
-                {this.props.state.errorInsurance_value}
-              </span>
-              S$
-              <input
-                type="number"
-                name="insurance_value"
-                value={this.props.state.insurance_value}
-                onChange={this.props.onChange}
-              />
-            </span>
-          </div>
-          <div className={styles.input_fields}>
-            Projected CPF Savings
-            <span>
-              <span className={styles.errorMsg}>
-                {this.props.state.errorCPF_value}
-              </span>
-              S$
-              <input
-                type="number"
-                name="CPF_value"
-                value={this.props.state.CPF_value}
-                onChange={this.props.onChange}
-              />
-            </span>
-          </div>
-          <div className={styles.input_fields}>
-            Projected Value of Other Assets
-            <span>
-              <span className={styles.errorMsg}>
-                {this.props.state.errorOther_assests_value}
-              </span>
-              S$
-              <input
-                type="number"
-                name="other_assests_value"
-                value={this.props.state.other_assests_value}
-                onChange={this.props.onChange}
-              />
-            </span>
-          </div>
-          <div className={styles.input_fields_bold}>
-            Total {total_surplus_shortfall_label}
-            <span className={styles.span_readonly}>
-              S$
-              <input
-                className={styles.input_fields_readonly}
-                type="text"
-                name="total_surplus_shortfall"
-                value={total_surplus_shortfall}
-                disabled
-              />
-            </span>
+          {/* Expected yearly expenses (Readonly) */}
+          <div className="row mb-3 align-items-center fw-bold">
+            <label className="col-12 col-md-6 form-label mb-1 mb-md-0">
+              Expected yearly expenses required during retirement years
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <span className="input-group-text">S$</span>
+                <input
+                  type="text"
+                  className="form-control bg-light fw-bold"
+                  value={expected_yearly_expenses}
+                  disabled
+                />
+              </div>
+            </div>
           </div>
 
-          <div className={styles.buttons_wrapper}>
-            <button type="submit">Proceed</button>
-            <p onClick={this.props.resetForm}>Reset</p>
+          <hr className="my-4" />
+
+          {/* Expected lifespan */}
+          <div className="row mb-3 align-items-center">
+            <label className="col-12 col-md-6 form-label fw-medium mb-1 mb-md-0">
+              Expected lifespan post-retirement
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <input
+                  type="number"
+                  className="form-control"
+                  name="expected_lifespan"
+                  value={this.props.state.expected_lifespan}
+                  onChange={this.props.onChange}
+                />
+                <span className="input-group-text">Years</span>
+              </div>
+              {this.props.state.errorExpected_lifespan && (
+                <div className="text-danger small mt-1">
+                  {this.props.state.errorExpected_lifespan}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Inflation rate */}
+          <div className="row mb-3 align-items-center">
+            <label className="col-12 col-md-6 form-label fw-medium mb-1 mb-md-0">
+              Inflation rate
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <input
+                  type="number"
+                  className="form-control"
+                  name="inflation_rate"
+                  value={this.props.state.inflation_rate}
+                  onChange={this.props.onChange}
+                />
+                <span className="input-group-text">%</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Interest rate */}
+          <div className="row mb-3 align-items-center">
+            <label className="col-12 col-md-6 form-label fw-medium mb-1 mb-md-0">
+              Interest rate
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <input
+                  type="number"
+                  className="form-control"
+                  name="interest_rate"
+                  value={this.props.state.interest_rate}
+                  onChange={this.props.onChange}
+                />
+                <span className="input-group-text">%</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Retirement sum required (Readonly) */}
+          <div className="row mb-3 align-items-center fw-bold">
+            <label className="col-12 col-md-6 form-label mb-1 mb-md-0">
+              Total sum required in {this.props.state.yrs_to_retire} years to fund your retirement
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <span className="input-group-text">S$</span>
+                <input
+                  type="text"
+                  className="form-control bg-light fw-bold"
+                  value={retirement_sum}
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+
+          <hr className="my-4" />
+
+          {/* Annual income put aside */}
+          <div className="row mb-3 align-items-center">
+            <label className="col-12 col-md-6 form-label fw-medium mb-1 mb-md-0">
+              Annual income put aside for retirement
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <span className="input-group-text">S$</span>
+                <input
+                  type="number"
+                  className="form-control"
+                  name="annual_income_aside"
+                  value={this.props.state.annual_income_aside}
+                  onChange={this.props.onChange}
+                />
+              </div>
+              {this.props.state.errorAnnual_income_aside && (
+                <div className="text-danger small mt-1">
+                  {this.props.state.errorAnnual_income_aside}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Projected value (Readonly) */}
+          <div className="row mb-3 align-items-center fw-bold">
+            <label className="col-12 col-md-6 form-label mb-1 mb-md-0">
+              Projected value of your retirement savings in {this.props.state.yrs_to_retire} years
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <span className="input-group-text">S$</span>
+                <input
+                  type="text"
+                  className="form-control bg-light fw-bold"
+                  value={projected_value}
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+
+          <hr className="my-4" />
+
+          {/* Insurance value */}
+          <div className="row mb-3 align-items-center">
+            <label className="col-12 col-md-6 form-label fw-medium mb-1 mb-md-0">
+              Projected Value of Insurance Policies
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <span className="input-group-text">S$</span>
+                <input
+                  type="number"
+                  className="form-control"
+                  name="insurance_value"
+                  value={this.props.state.insurance_value}
+                  onChange={this.props.onChange}
+                />
+              </div>
+              {this.props.state.errorInsurance_value && (
+                <div className="text-danger small mt-1">
+                  {this.props.state.errorInsurance_value}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* CPF value */}
+          <div className="row mb-3 align-items-center">
+            <label className="col-12 col-md-6 form-label fw-medium mb-1 mb-md-0">
+              Projected CPF Savings
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <span className="input-group-text">S$</span>
+                <input
+                  type="number"
+                  className="form-control"
+                  name="CPF_value"
+                  value={this.props.state.CPF_value}
+                  onChange={this.props.onChange}
+                />
+              </div>
+              {this.props.state.errorCPF_value && (
+                <div className="text-danger small mt-1">
+                  {this.props.state.errorCPF_value}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Other assets value */}
+          <div className="row mb-3 align-items-center">
+            <label className="col-12 col-md-6 form-label fw-medium mb-1 mb-md-0">
+              Projected Value of Other Assets
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <span className="input-group-text">S$</span>
+                <input
+                  type="number"
+                  className="form-control"
+                  name="other_assests_value"
+                  value={this.props.state.other_assests_value}
+                  onChange={this.props.onChange}
+                />
+              </div>
+              {this.props.state.errorOther_assests_value && (
+                <div className="text-danger small mt-1">
+                  {this.props.state.errorOther_assests_value}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Total Surplus / Shortfall (Readonly) */}
+          <div className="row mb-4 align-items-center fw-bold">
+            <label className="col-12 col-md-6 form-label mb-1 mb-md-0">
+              Total {total_surplus_shortfall_label}
+            </label>
+            <div className="col-12 col-md-6">
+              <div className="input-group">
+                <span className="input-group-text">S$</span>
+                <input
+                  type="text"
+                  className="form-control bg-light fw-bold"
+                  value={total_surplus_shortfall}
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Buttons */}
+          <div className={`${styles.buttonWrapper} d-flex align-items-center gap-3 mt-4`}>
+            <button type="submit" className={`${styles.submitButton}`}>Proceed</button>
+            <button
+              type="button"
+              className="btn btn-outline-secondary"
+              onClick={this.props.resetForm}
+            >
+              Reset
+            </button>
           </div>
         </form>
+
         <Charts
           chart_class={chart_class}
           state={this.props.state}

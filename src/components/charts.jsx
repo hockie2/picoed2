@@ -21,12 +21,21 @@ class Charts extends React.Component {
         }
 
       return (
-        <div className={this.props.chart_class}>
-            <Chart chartType="ColumnChart" width="100%" height="600px" data={data} options={options} />
-            <div className={styles.chart_footer}>
-                <div className={styles.chart_details}>Total Funds Required <br/> S${this.props.total_funds}</div>
-                <div className={styles.chart_details}>Total Current Funds Available <br/> S${this.props.retirement_sum}</div>
-                <div className={styles.chart_details}>{this.props.total_surplus_shortfall_label} <br/> S${this.props.total_surplus_shortfall}</div>
+        <div className={`${this.props.chart_class} gap-3`}>
+            <Chart chartType="ColumnChart" width="100%" height="100%" data={data} options={options} className="d-flex justify-content-center" />
+            <div className={`${styles.chart_footer} p-3 rounded-3 d-flex justify-content-between`}>
+                <div className={`${styles.chart_details} vstack`}>
+                  Total Funds Required
+                  <h3>S${this.props.total_funds}</h3>
+                </div>
+                <div className={`${styles.chart_details} vstack`}>
+                  Total Current Funds Available 
+                  <h3>S${this.props.retirement_sum}</h3>
+                </div>
+                <div className={`${styles.chart_details} vstack`}>
+                  {this.props.total_surplus_shortfall_label}
+                  <h3>S${this.props.total_surplus_shortfall}</h3>
+                </div>
             </div>
             <button className={styles.edit} onClick={this.props.editForm}>Back to Edit</button>
         </div>

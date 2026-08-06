@@ -5,6 +5,7 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   font-family: "Roboto", sans-serif;
+  height: 100%;
 }
 
 .App {
@@ -29,10 +30,8 @@ body {
 }
 
 .headerText {
-  //   width: 25%;
-  //   height: 70%;
   padding: 20px;
-  font-size: clamp(63px, 13vw, 82px);
+  font-size: clamp(5em, 13vw, 100%);
   color: #265395;
   margin-right: 20px;
   line-height: 1.2;
@@ -48,7 +47,7 @@ body {
 }
 
 .folksMax {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .form_wrapper_hidden {
@@ -84,9 +83,9 @@ span {
 }
 
 input {
-  width: 200px;
-  height: 30px;
-  margin: 0 10px;
+  // width: 200px;
+  // height: 30px;
+  // margin: 0 10px;
   padding: 0 5px;
   border-radius: 5px;
   border: 1px solid #e9e6e6;
@@ -115,30 +114,23 @@ input:focus {
   background-color: white;
 }
 
-.buttons_wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100px;
-  padding: 0;
-  margin-top: 20px;
-
-  p {
-    margin: 10px;
-    font-size: 0.8em;
-  }
-
+.buttonWrapper {
   button {
-    width: 200px;
     height: 50px;
-    margin: 0;
-    border-radius: 10px;
-    border: 0;
-    background-color: orange;
-    color: white;
-    font-size: 1.2em;
   }
+  .submitButton {
+      width: 200px;
+      margin: 0;
+      border-radius: 10px;
+      border: 0;
+      background-color: orange;
+      color: white;
+      font-size: 1.2em;
+    }
+    .submitButton:hover {
+      background-color: #ffb84d;
+    }
+
 }
 
 .chart_wrapper {
@@ -155,8 +147,13 @@ input:focus {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #eff6f9;
 }
-
+.chart_footer h3 {
+  color: #265395;
+  font-weight: bold;
+  margin: 0;
+}
 .chart_details {
   width: 30%;
   display: flex;
@@ -166,13 +163,16 @@ input:focus {
 
 .edit {
   width: 200px;
-  height: 50px;
+  height: 80px;
   margin: 50px auto;
   border-radius: 10px;
   border: 0;
   background-color: orange;
   color: white;
   font-size: 1.2em;
+}
+.edit:hover {
+  background-color: #ffb84d;
 }
 
 .errorMsg {
